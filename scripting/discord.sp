@@ -23,14 +23,14 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
-	RegAdminCmd("sm_testdiscord", Command_TestDiscord, ADMFLAG_ROOT);
+	RegConsoleCmd("sm_discord", Command_TestDiscord);
 }
 
 public Action Command_TestDiscord(int client, int args)
 {
 	if(args < 2)
 	{
-		ReplyToCommand(client, "sm_testdiscord <channel> <message...>");
+		ReplyToCommand(client, "usage: sm_discord relay <message...>");
 		return Plugin_Handled;
 	}
 	
