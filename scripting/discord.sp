@@ -23,14 +23,19 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
-	RegConsoleCmd("sm_discord", Command_TestDiscord);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM1);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM2);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM3);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM4);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM5);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM6);
 }
 
 public Action Command_TestDiscord(int client, int args)
 {
 	if(args < 2)
 	{
-		ReplyToCommand(client, "usage: sm_discord relay <message...>");
+		ReplyToCommand(client, "[OPST] Usage: sm_discord relay <message...>");
 		return Plugin_Handled;
 	}
 	
