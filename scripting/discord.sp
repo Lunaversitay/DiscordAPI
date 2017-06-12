@@ -6,10 +6,10 @@
 public Plugin myinfo = 
 {
 	name = "Discord API",
-	author = "Bara",
-	description = "Thanks to ImACow and Phire for their snippet",
+	author = "Ragenewb",
+	description = "Server to Discord relay system",
 	version = "1.0.0",
-	url = "github.com/Bara20"
+	url = "github.com/Ragenewb"
 };
 
 public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
@@ -23,12 +23,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM1);
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM2);
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM3);
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM4);
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM5);
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM6);
+	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM1 || ADMFLAG_CUSTOM2 || ADMFLAG_CUSTOM3 || ADMFLAG_CUSTOM4 || ADMFLAG_CUSTOM5 || ADMFLAG_CUSTOM6);
 }
 
 public Action Command_TestDiscord(int client, int args)
