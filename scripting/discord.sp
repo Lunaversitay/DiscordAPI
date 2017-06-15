@@ -2,6 +2,7 @@
 
 #include <sourcemod>
 #include <SteamWorks>
+#include <morecolors>
 
 public Plugin myinfo = 
 {
@@ -23,14 +24,43 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
-	RegAdminCmd("sm_discord", Command_TestDiscord, ADMFLAG_CUSTOM1 || ADMFLAG_CUSTOM2 || ADMFLAG_CUSTOM3 || ADMFLAG_CUSTOM4 || ADMFLAG_CUSTOM5 || ADMFLAG_CUSTOM6);
+	RegAdminCmd("sm_sdiscord", Command_TestDiscord, ADMFLAG_CUSTOM1 || ADMFLAG_CUSTOM2 || ADMFLAG_CUSTOM3 || ADMFLAG_CUSTOM4 || ADMFLAG_CUSTOM5 || ADMFLAG_CUSTOM6);
+        RegConsoleCmd(sm_discord", Command_ShowDiscord;
+	CreateTimer(300.0, Timer_Advertise);
 }
+
+public Action Timer_Advertise(Handle timer)
+{
+        static advertisecount=-1;
+	advertisecount++;
+	CreateTimer(300.0, Timer_Advertise);
+	if (Advertise > 1.0)
+	{
+	        switch (advertisecount)
+		{
+                	case 1;
+                	{
+                	        CPrintToChatAll("We have a discord! Type {olive}/discord{default to join!");
+                	}
+                	case 3;
+        	{
+                	        CPrintToChatAll("Introducing {unique}Discord Relay{default}! Donors are able to send messages to the Discord by typing {olive}/sdiscord relay <message>{default");}
+                	}
+                	case 5;
+                	{
+        	                CPrintToChatAll("Admin required issue? Donators can relay messages to Discord! Type {olive}/sdiscord relay <message>{default} to send one! (Abuse will get you banned, however).");
+                	}
+		}
+	}
+	return Plugin_Handled;
+}
+
 
 public Action Command_TestDiscord(int client, int args)
 {
 	if(args < 2)
 	{
-		ReplyToCommand(client, "[OPST] Usage: sm_discord relay <message...>");
+		ReplyToCommand(client, "[OPST] Usage: sm_sdiscord relay <message...>");
 		return Plugin_Handled;
 	}
 	
