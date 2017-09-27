@@ -7,8 +7,8 @@
 public Plugin myinfo = 
 {
 	name = "Discord API",
-	author = "Ragenewb",
-	description = "Server to Discord relay system",
+	author = "Bara",
+	description = "Thanks to ImACow and Phire for their snippet",
 	version = "1.0.0",
 	url = "github.com/Ragenewb"
 };
